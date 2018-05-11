@@ -1,3 +1,7 @@
+<?php
+include 'includes/config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,32 +47,6 @@
                 <p><a href="image.php">Learn More</a></p> 
             </div>     
         </div>
-        <div class="img">
-            <div class="img-content">
-                <img src="uploads/1.jpeg">
-                <h3>Mountain Landscape</h3>
-                <br>
-                <p><a href="image.php">Learn More</a></p> 
-            </div>     
-        </div>
-        <div class="img">
-            <div class="img-content">
-                <img src="uploads/1.jpeg">
-                <h3>Mountain Landscape</h3>
-                <br>
-                <p><a href="image.php">Learn More</a></p> 
-            </div>     
-        </div>
-        <div class="img">
-            <div class="img-content">
-                <img src="uploads/1.jpeg">
-                <h3>Mountain Landscape</h3>
-                <br>
-                <p><a href="image.php">Learn More</a></p> 
-            </div>     
-        </div>
-
-
 
     </section>
 

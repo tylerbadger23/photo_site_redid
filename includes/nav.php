@@ -8,7 +8,7 @@
                 <ul>
                     <li><a href="#">Community</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">SignUp</a></li>
+                    <li><a href="register.php">SignUp</a></li>
                     <li><a href="#">Login</a></li>
                     
                 </ul>
