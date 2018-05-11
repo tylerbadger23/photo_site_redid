@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Image Name | Images</title>
     <link rel="stylesheet" type='text/css' href="assets/image_page.css">
+    <link rel="stylesheet" type='text/css' href="assets/general.css">
 </head>
 <body>
 
@@ -16,7 +17,7 @@
         <div class="container second_nav">
             <a href="index.php"><p>Go Back</p></a>
             <form action="results.php" method='POST'>
-                <input type="text" name='search' required placeholder='Serach...'>
+                <input type="text" name='search' required placeholder='Search...'>
                 <button type='submit'>Search</button>
             </form>
         </div>
