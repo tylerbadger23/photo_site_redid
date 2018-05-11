@@ -1,4 +1,3 @@
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -53,6 +52,7 @@ table {
     max-width: 1160px;
     margin: 0 auto;
 }
+
 
 button:hover {
     cursor: pointer;
@@ -111,29 +111,31 @@ nav ul li a:hover {
 }
 
 
-/*categories */
+/* 2nd nav  */
 
-
-#categories {
-    margin: 40px auto 30px auto;
-    text-align: center; 
+#second-nav {
+    background: #f1f1f1;
+    border-bottom: 1px solid #7D68FF;
 }
 
-#categories h2{
-    font-weight: 700;
-    font-size: 39px;
-    font-family: 'Futura';
+.second_nav {
+   padding: 15px 0;
+   display: flex;
+   justify-content: space-between;
+}
+
+.second_nav a {
+    text-decoration: none;
     color: #7D68FF;
-    padding: 0 0 20px 0;
+    margin: 5px 0 0 0;
+    font-family: "Futura";
+    font-size: 22px;
+    font-weight: 500;
 }
 
 
-#categories form{
-    margin: 30px 0 20px 0;
-}
-
-#categories form input {
-    width: 40%;
+.second_nav form input {
+    width: 70%;
     font-weight: 700;
     font-family: "Futura";
     font-size: 16px;
@@ -143,7 +145,7 @@ nav ul li a:hover {
     border: 1.5px solid #7D68FF;
 }
 
-#categories form button {
+.second_nav form button {
     font-weight: 700;
     font-family: "Futura";
     font-size: 16px;
@@ -155,88 +157,63 @@ nav ul li a:hover {
 
 }
 
-#categories p {
-    max-width: 700px; 
-    margin: 0 auto;
+
+
+
+/* image section   */
+
+
+
+
+.flex-2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.flex-2 h3 {
+    font-family: "Futura";
+    font-weight: 700;
+    margin: 50px 0 25px 0;
+    color: rgb(36, 36, 36);
+    font-size: 30px;
+}
+
+.flex-2 p {
+    font-size: 25px;
+    margin: 50px 0 25px 0;
+    font-family: "helvetica neue";
     font-weight: 300;
-    font-size: 18px;
-    font-family: 'Helvetica neue';
+    color: rgb(56, 56, 56)
 }
 
-.category_container {
-    margin: 20px 0;
-}
-
-.category_container a {
-    padding: 5px 8px; 
+.flex-2 a {
+    border: 0;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: 300;
-    font-family: "Helvetica neue";
-    color: #7D68FF;
 }
 
-
-
-
-
-/* galery */ 
- #gallery {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    margin: 0 auto;
-    grid-gap: 2%;
+#img_content .container img {
+    width: 100%;
+    border-radius: 12px;
 }
 
-.img-content {
-    position: relative;
-    padding: 0;
-}
-.img a {
+.flex-2 p a {
+    text-decoration: none;
     background: #7D68FF;
     color: #fff;
-    padding: 3% 13%;
-    border-radius: 10px;
-    display: block;
-    position: absolute;
-    bottom: -7px;
-    left: 0;
+    border-radius: 6px;
+    padding: 14px 17px;
+    margin-bottom: 20px;
+}
+
+#img_content .container .img_desc {
+    margin: 20px 0 50px 0;
     font-weight: 200;
-    font-size: 19px;
-    font-family: 'helvetica neue';
-    text-decoration: none;
-    text-align: center;
+    font-family: "Helvetica neue";
+    font-size: 20px;
+    line-height: 27px;
+    max-width: 900px;
 }
-
-
-section .img h3 {
-    text-align: left;
-    padding: 5px 0 25px 0;
-    font-weight: 300;
-    font-size: 24px;
-    font-family: 'Futura';
-}
-
-.img img {
-    width: 100%;
-}
-
-.img {
-   padding: 20px 20px;
-   background: #f1f1f1;
-   margin: 20px 0;
-}
-
-
-
-
-/* image.php */
-
-
-
-
-
-
 
 
 
@@ -244,6 +221,20 @@ section .img h3 {
 
 
 /* media querys   */
+@media only screen and (max-width: 1160px) {
+   .second_nav {
+       padding: 15px 30px;
+   }
+   .flex-2 , #img_content .container img {
+       padding: 0 25px;
+       border-radius: 12px;
+   }
+   .container .img_desc {
+        padding: 20px;
+   }
+
+}
+
 
 
 @media only screen and (max-width: 830px) {
@@ -258,7 +249,7 @@ section .img h3 {
 }
 
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     #gallery {
         grid-template-columns: 100%;
     }
@@ -283,4 +274,26 @@ section .img h3 {
         margin: 0 10px;
         font-size: 14px;
     }
+
+    .second_nav form input {
+        width: 40%;
+
+    }
+
+    .flex-2 {
+        display: block;
+    }
+
+    .flex-2 p {
+        margin: 20px 0;
+    }
+
+    .flex-bottom p {
+        margin: 40px 0 20px 0;
+    }
+
+    .container .img_desc {
+        margin: 10px 0;
+    }
+    
 }

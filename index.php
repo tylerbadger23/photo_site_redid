@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>dcdchdc</title>
+    <title>Image Markeplace</title>
     <link rel="stylesheet" type='text/css' href="assets/style.css">
 </head>
 <body>
@@ -39,7 +39,7 @@
                 <img src="uploads/1.jpeg">
                 <h3>Mountain Landscape</h3>
                 <br>
-                <p><a href="#">Learn More</a></p> 
+                <p><a href="image.php">Learn More</a></p> 
             </div>     
         </div>
         <div class="img">
@@ -47,7 +47,7 @@
                 <img src="uploads/1.jpeg">
                 <h3>Mountain Landscape</h3>
                 <br>
-                <p><a href="#">Learn More</a></p> 
+                <p><a href="image.php">Learn More</a></p> 
             </div>     
         </div>
         <div class="img">
@@ -55,7 +55,7 @@
                 <img src="uploads/1.jpeg">
                 <h3>Mountain Landscape</h3>
                 <br>
-                <p><a href="#">Learn More</a></p> 
+                <p><a href="image.php">Learn More</a></p> 
             </div>     
         </div>
         <div class="img">
@@ -63,7 +63,7 @@
                 <img src="uploads/1.jpeg">
                 <h3>Mountain Landscape</h3>
                 <br>
-                <p><a href="#">Learn More</a></p> 
+                <p><a href="image.php">Learn More</a></p> 
             </div>     
         </div>
 
