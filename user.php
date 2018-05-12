@@ -1,5 +1,6 @@
 <?php
 include 'includes/config.php';
+include "includes/login_check.php";
 ?>
 
 <!DOCTYPE html>

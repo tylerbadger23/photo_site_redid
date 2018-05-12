@@ -150,7 +150,7 @@ if(isset($_POST['register_btn'])) {
         $send_query = mysqli_query($con,"INSERT INTO users VALUES ('','$fname','$lname','$email','$bio','$username','$profile_picture','$date_created','$password_new')");
 
         #success message
-        header("Location: ../../register.php?error=success");
+        header("Location: ../../login.php?error=success");
         exit();
     }
 
