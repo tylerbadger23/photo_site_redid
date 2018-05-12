@@ -29,25 +29,37 @@ include "includes/login_check.php";
         </form>
 
         <div class="category_container">
-            <a href="#">Nature</a>
-            <a href="#">Food</a>
-            <a href="#">People</a>
-            <a href="#">Animals</a>
-            <a href="#">Illustrations</a>
-            <a href="#">Tech</a>
+            <?php
+                //get data from database
+                $get_cats_query = mysqli_query($con,"SELECT * FROM categories");
+                //show results
+                if(mysqli_num_rows($get_cats_query) > 0) {
+                    while($row = mysqli_fetch_assoc($get_cats_query)) {
+                        ?><a href="category.php?id=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a>
+                <?php } } ?>
         </div>
     </section>
 
     <section id='gallery' class='container'>
 
-        <div class="img">
-            <div class="img-content">
-                <img src="uploads/1.jpeg">
-                <h3>Mountain Landscape</h3>
-                <br>
-                <p><a href="image.php">Learn More</a></p> 
-            </div>     
-        </div>
+        <?php
+        //get images from database
+        $select_img_query = mysqli_query($con,"SELECT * FROM photos");
+        $select_img_result = mysqli_num_rows($select_img_query);
+        //if rows then diaplay images
+        if($select_img_result > 0) {
+            while($image = mysqli_fetch_assoc($select_img_query)) {
+                ?> 
+                <div class="img">
+                    <div class="img-content">
+                        <img src="<?php echo $image['img_location'] ?>">
+                        <h3><?php echo $image['title'];?></h3>
+                        <br>
+                        <p><a href="image.php?imgid=<?php echo $image['id'];?>">Learn More</a></p> 
+                    </div>     
+                </div> <?php 
+                } 
+            }?>
 
     </section>
 
