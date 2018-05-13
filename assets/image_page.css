@@ -46,14 +46,37 @@
 }
 
 #img_content .container .img_desc {
-    margin: 20px 0 50px 0;
+    margin: 20px 0 20px 0;
     font-weight: 200;
     font-family: "Helvetica neue";
     font-size: 20px;
+    padding: 0;
     line-height: 27px;
-    max-width: 900px;
+    max-width: 700px;
+}
+
+.delete {
+    background: #FF6868;
+    color: #fff;
+    margin: 0;
+    border-radius: 7px;
+    padding: 15px 30px;
+    border: 0;
 }
 
 
 
 
+
+
+/* media querys   */
+@media only screen and (max-width: 850px) {
+    
+#img_content .container .img_desc {
+    margin: 20px 20px 20px 0;
+    padding:  20px 0;
+}
+
+ 
+ }
+ 

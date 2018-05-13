@@ -2,7 +2,20 @@
 include 'includes/config.php';
 include "includes/login_check.php";
 ?>
+<?php
 
+$img_id = strip_tags($_GET['imgid']);
+$img_id = mysqli_real_escape_string($con, $img_id);
+
+$get_img_details_query = mysqli_query($con, "SELECT * FROM photos WHERE id='$img_id'");
+
+if(mysqli_num_rows($get_img_details_query) > 0) {
+    $image = mysqli_fetch_assoc($get_img_details_query);
+
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,17 +44,26 @@ include "includes/login_check.php";
     <section id='img_content'>
          <div class="container">
             <div class="flex-2">
-                <h3>Title Goes Here</h3>
-                <a href="user.php"><p>tyler_laceby</p></a>
+                <h3><?php echo $image['title'];?></h3>
+                <a href="user.php?username=<?php echo $image['added_by_username'];?>"><p><?php echo $image['added_by_username'];?></p></a>
             </div>
-            <img src="uploads/1.jpeg" alt="image alt goes here">
+            <img src="<?php echo $image['img_location'] ; ?>" alt="image alt goes here">
             <div class="flex-2 flex-bottom">
-                <p><a href="#">Download Image</a></p>
-                <a href="user.php"><p>See More From This User</p></a>
+                <p><a href="<?php echo $image['img_location'];?>" download>Download Image</a></p>
+                <a href="user.php?username=<?php echo $image['added_by_username'];?>"><p>See More From This User</p></a>
             </div>
-            <p class='img_desc'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos provident id Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos provident id quisquam deserunt, aliquam dicta eius ut nulla 
-            facilis iusto, quam voluptatem fuga rerum nisi qui, doloribus luta? quisquam deserunt, aliquam dicta eius ut nulla 
-            facilis iusto, quam voluptatem fuga rerum nisi qui, doloribus luta?</p>
+
+            <div class="flex-2">
+                <p class='img_desc'><?php echo $image['description']; ?></p>
+
+                <?php  
+                    if($current_username == 'adminuser') { ?>
+                    <form class='delete_form' action="includes/form_handlers/delete_img.php" method='POST'>
+                        <input type="hidden" name='img_id' value='<?php echo $img_id;?>'>
+                        <button type='submit' class='delete' name='delete_img_btn'>Delete Post</button>
+                    </form> 
+                <?php  }?>
+            </div>
         </div>
     </section>
 

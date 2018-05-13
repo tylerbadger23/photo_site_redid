@@ -28,7 +28,7 @@ include 'includes/config.php';
 
                 <div class="input-container">
                     <label>Description</label>
-                    <textarea name="desc" required placeholder='Enter Content Here...'></textarea>
+                    <textarea name="desc" rows="8" required placeholder='Enter Content Here...'></textarea>
                 </div>
 
                 <div class="input-container">

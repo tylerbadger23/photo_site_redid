@@ -44,12 +44,12 @@ include "includes/login_check.php";
 
         <?php
         //get images from database
-        $select_img_query = mysqli_query($con,"SELECT * FROM photos");
+        $select_img_query = mysqli_query($con,"SELECT * FROM photos ORDER BY id DESC");
         $select_img_result = mysqli_num_rows($select_img_query);
         //if rows then diaplay images
         if($select_img_result > 0) {
             while($image = mysqli_fetch_assoc($select_img_query)) {
-                ?> 
+                ?>
                 <div class="img">
                     <div class="img-content">
                         <img src="<?php echo $image['img_location'] ?>">

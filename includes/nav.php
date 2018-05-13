@@ -23,7 +23,7 @@
                         
                         <?php // check if user is not logged in
                         if($_SESSION['current_username'] == 'adminuser') { ?>
-                            <li><a href="create_category.php">Create Category</a></li>
+                            <li><a href="admin.php">Admin</a></li>
                             <li><a href="upload_img.php">Upload</a></li>
                             <li><a href="includes/logout.php">Logout</a></li>
                         <?php } ?> 
