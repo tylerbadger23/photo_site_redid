@@ -12,12 +12,6 @@ if(isset($_POST['img_upload_btn'])) {
     // set file array
     $file = $_FILES['img'];
 
-    //filter_title
-    $title = $_POST['title'];
-    $title = strip_tags($title);
-    $title = ucfirst(strtolower($title));
-    $title = mysqli_real_escape_string($con, $title);
-
     //filter_description
     $desc= $_POST['desc'];
     $desc = strip_tags($desc);

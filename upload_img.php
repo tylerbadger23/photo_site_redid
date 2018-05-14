@@ -20,12 +20,7 @@ include 'includes/config.php';
         <div class="container">
             <h2>Upload To Our Marketplace</h2>
             <form action="includes/form_handlers/image_upload.php" method='post' enctype='multipart/form-data'>
-
-                <div class="input-container">
-                    <label>Title</label>
-                    <input type="text" name='title' placeholder='Title Goes Here'required>
-                </div>
-
+            
                 <div class="input-container">
                     <label>Description</label>
                     <textarea name="desc" rows="8" required placeholder='Enter Content Here...'></textarea>

@@ -169,37 +169,14 @@ nav ul li a:hover {
     display: grid;
     grid-template-columns: 33% 33% 33%;
     margin: 0 auto;
-    grid-gap: 1.4%;
+    grid-gap: 1.7%;
 }
 
 .img-content {
     position: relative;
     padding: 0;
 }
-.img a {
-    background: #7D68FF;
-    color: #fff;
-    padding: 3% 13%;
-    border-radius: 10px;
-    display: block;
-    position: absolute;
-    bottom: -7px;
-    left: 0;
-    font-weight: 200;
-    font-size: 19px;
-    font-family: 'helvetica neue';
-    text-decoration: none;
-    text-align: center;
-}
 
-
-section .img h3 {
-    text-align: left;
-    padding: 5px 0 25px 0;
-    font-weight: 300;
-    font-size: 24px;
-    font-family: 'Futura';
-}
 
 .flex-2 {
     display: flex;
@@ -220,6 +197,7 @@ section .img h3 {
 
 .img img {
     width: 100%;
+    max-height: 255px;
     border-radius: 6px;
 }
 
