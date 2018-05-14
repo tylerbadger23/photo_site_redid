@@ -56,7 +56,7 @@ if(isset($_POST['img_upload_btn'])) {
                 $date_now = date('Y-m-d');
 
                 //query to insert values into db
-                $query = mysqli_query($con,"INSERT INTO photos VALUES ('','$title','$desc','$file_destination','$date_now','$file_name_new','$selection','$current_username')");
+                $query = mysqli_query($con,"INSERT INTO photos VALUES ('','$title','$desc','$file_destination','$date_now','$file_name_new','$selection','$current_username','0')");
                 //head back to index.php
                 header("Location: ../../index.php?error=upload_success");
 

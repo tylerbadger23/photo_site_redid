@@ -211,10 +211,6 @@ section .img h3 {
    margin: 20px 0;
 }
 
-
-
-
-
 /* media querys   */
 @media only screen and (max-width: 1160px) {
     .second_nav {

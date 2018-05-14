@@ -23,8 +23,8 @@ if(mysqli_num_rows($get_img_details_query) > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Image Name | Images</title>
-    <link rel="stylesheet" type='text/css' href="assets/image_page.css">
     <link rel="stylesheet" type='text/css' href="assets/general.css">
+    <link rel="stylesheet" type='text/css' href="assets/image_page.css">
 </head>
 <body>
 
@@ -42,7 +42,7 @@ if(mysqli_num_rows($get_img_details_query) > 0) {
     </section>
 
     <section id='img_content'>
-         <div class="container">
+        <div class="container">
             <div class="flex-2">
                 <h3><?php echo $image['title'];?></h3>
                 <a href="user.php?username=<?php echo $image['added_by_username'];?>"><p><?php echo $image['added_by_username'];?></p></a>
@@ -52,10 +52,20 @@ if(mysqli_num_rows($get_img_details_query) > 0) {
                 <p><a href="<?php echo $image['img_location'];?>" download>Download Image</a></p>
                 <a href="user.php?username=<?php echo $image['added_by_username'];?>"><p>See More From This User</p></a>
             </div>
-            <a class='like_btn' href='includes/form_handlers/img_like.php?photo_id=<?php echo $img_id;?>'>Like</a>
+            <?php
+                //get num of likes for image
+                $select_likes_query = mysqli_query($con, "SELECT * FROM photos_likes WHERE photo_id='$img_id'");
+                $num_results = mysqli_num_rows($select_likes_query);
+                if($num_results > 0) {
+                    $num_likes = $num_results;
+                } else {
+                    $num_likes = 0;
+                }
+            ?>
+                <h4 class='like_count'>LIKES: <span><?php echo $num_likes;?></span></h4>
+                <a class='like_btn' href='includes/form_handlers/img_like.php?photo_id=<?php echo $img_id;?>'>Like Image</a>
             <div class="flex-2">
                 <p class='img_desc'><?php echo $image['description']; ?></p>
-
                 <?php  
                     if($current_username == 'adminuser') { ?>
                     <form class='delete_form' action="includes/form_handlers/delete_img.php" method='POST'>
