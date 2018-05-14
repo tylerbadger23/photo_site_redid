@@ -169,7 +169,7 @@ nav ul li a:hover {
     display: grid;
     grid-template-columns: 33% 33% 33%;
     margin: 0 auto;
-    grid-gap: 2%;
+    grid-gap: 1.4%;
 }
 
 .img-content {
@@ -201,12 +201,29 @@ section .img h3 {
     font-family: 'Futura';
 }
 
+.flex-2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.img-content p {
+    font-size: 17px;
+    color: #222;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+#gallery a {
+    text-decoration: none;
+}
+
 .img img {
     width: 100%;
+    border-radius: 6px;
 }
 
 .img {
-   padding: 20px 20px;
    background: #f1f1f1;
    margin: 20px 0;
 }
@@ -229,7 +246,7 @@ section .img h3 {
  
  
  @media only screen and (max-width: 830px) {
-     #gallery {
+     hgr {
          grid-template-columns: 50% 50%;
          margin: 0px 20px;
      }

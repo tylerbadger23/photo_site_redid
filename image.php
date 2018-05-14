@@ -44,7 +44,7 @@ if(mysqli_num_rows($get_img_details_query) > 0) {
     <section id='img_content'>
         <div class="container">
             <div class="flex-2">
-                <h3><?php echo $image['title'];?></h3>
+                
                 <a href="user.php?username=<?php echo $image['added_by_username'];?>"><p><?php echo $image['added_by_username'];?></p></a>
             </div>
             <img src="<?php echo $image['img_location'] ; ?>" alt="image alt goes here">

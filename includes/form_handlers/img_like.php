@@ -5,8 +5,8 @@ if(isset($_GET['photo_id'])) {
 
     #get user id form current user
     $user_id = $_SESSION['current_id'];
-    strip_tags($user_id);
-    mysqli_real_escape_string($con, $user_id);
+    $user_id = strip_tags($user_id);
+    $user_id = mysqli_real_escape_string($con, $user_id);
 
     //filter for code
     $photo_id = strip_tags($_GET['photo_id']);
@@ -23,7 +23,7 @@ if(isset($_GET['photo_id'])) {
             //if database insert is success then add to like count and return to page return to same page
             if(mysqli_query($con, "INSERT INTO photos_likes VALUES ('','$user_id','$photo_id')")) {
                 $photo_like_count = $photo_like_count + 1;
-                $update_like_query = mysqli_query($con, "UPDATE photos SET num_likes='$photo_like_count'");
+                $update_like_query = mysqli_query($con, "UPDATE photos SET num_likes='$photo_like_count' WHERE id='$photo_id'");
                 header("Location: ../../image.php?imgid=".$photo_id);
                 exit();
             } else { // run if failed to insert to database

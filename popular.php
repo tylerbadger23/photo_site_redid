@@ -1,18 +1,6 @@
 <?php
 include 'includes/config.php';
 include "includes/login_check.php";
-
-$cat_id = strip_tags($_GET['id']);
-$cat_id = mysqli_real_escape_string($con, $cat_id);
-//get current pages category
-$get_category_query = mysqli_query($con, "SELECT * FROM categories WHERE id='$cat_id'");
-
-if(mysqli_num_rows($get_category_query)) {
-    $category = mysqli_fetch_assoc($get_category_query);
-    $current_category = $category['name']; 
-}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -27,9 +15,11 @@ if(mysqli_num_rows($get_category_query)) {
 </head>
 <body>
 
+
     <?php require 'includes/nav.php';?>
 
-    <section id="second-nav">
+
+    <section id="second-nav">           
         <div class="container second_nav">
             <a href="index.php"><p>Go Back</p></a>
             <form action="results.php" method='POST'>
@@ -43,21 +33,23 @@ if(mysqli_num_rows($get_category_query)) {
 
         <?php
         //get images from database
-        $select_img_cat_query = mysqli_query($con,"SELECT * FROM photos WHERE category='$current_category'");
-        $select_img_cat_result = mysqli_num_rows($select_img_cat_query);
+        $select_img_query = mysqli_query($con,"SELECT * FROM photos ORDER BY num_likes DESC");
+        $select_img_result = mysqli_num_rows($select_img_query);
         //if rows then diaplay images
-        if($select_img_cat_result > 0) {
-            while($image = mysqli_fetch_assoc($select_img_cat_query)) {
+        if($select_img_result > 0) {
+            while($image = mysqli_fetch_assoc($select_img_query)) {
                 ?>
                 <a href="image.php?imgid=<?php echo $image['id'];?>">
                     <div class="img">
                         <div class="img-content">
                             <img src="<?php echo $image['img_location'] ?>">
+                            <p>LIKES: <?php echo $image['num_likes'];?></p>
                         </div>     
                     </div>
-                </a> <?php 
+                </a><?php 
                 } 
             }?>
+
 
     </section>
 

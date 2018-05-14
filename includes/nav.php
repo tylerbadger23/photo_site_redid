@@ -6,7 +6,7 @@
                     <a href="index.php"><h2>Photo_Site</h2></a>
                 </div>
                 <ul>
-                    <li><a href="#">Community</a></li>
+                    <li><a href="popular.php">Popular</a></li>
                     <li><a href="#">About</a></li>
                             
                         <?php # check if user is logged in and show correct links

@@ -70,14 +70,13 @@ if(isset($_GET['username'])) {
         if($select_imgs_result > 0) {
             while($image = mysqli_fetch_assoc($select_imgs_query)) {
                 ?>
-                <div class="img">
-                    <div class="img-content">
-                        <img src="<?php echo $image['img_location'] ?>">
-                        <h3><?php echo $image['title'];?></h3>
-                        <br>
-                        <p><a href="image.php?imgid=<?php echo $image['id'];?>">Learn More</a></p> 
-                    </div>     
-                </div> <?php 
+                <a href="image.php?imgid=<?php echo $image['id'];?>">
+                    <div class="img">
+                        <div class="img-content">
+                            <img src="<?php echo $image['img_location'] ?>">
+                        </div>     
+                    </div>
+                </a> <?php 
                 } 
             }?>
 

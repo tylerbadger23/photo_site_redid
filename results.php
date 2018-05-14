@@ -42,7 +42,7 @@ if(isset($_POST['search'])) {
     $select_img_query = mysqli_query($con,"SELECT * FROM photos WHERE category LIKE '%$search%' OR title LIKE '%$search%' OR date_uploaded LIKE '%$search%' OR added_by_username LIKE '%$search%' ORDER BY id DESC");
     $select_img_result = mysqli_num_rows($select_img_query);
     if($select_img_result > 0) {
-        echo "<div class='count'>" . $select_img_result . "</div>";
+        //echo "<div class='count'>" . $select_img_result . "</div>";
     } ?>
     <section id='gallery' class='container'>
 
@@ -52,14 +52,13 @@ if(isset($_POST['search'])) {
         if($select_img_result > 0) {
             while($image = mysqli_fetch_assoc($select_img_query)) {
                 ?>
-                <div class="img">
-                    <div class="img-content">
-                        <img src="<?php echo $image['img_location'] ?>">
-                        <h3><?php echo $image['title'];?></h3>
-                        <br>
-                        <p><a href="image.php?imgid=<?php echo $image['id'];?>">Learn More</a></p> 
-                    </div>     
-                </div> <?php 
+                <a href="image.php?imgid=<?php echo $image['id'];?>">
+                    <div class="img">
+                        <div class="img-content">
+                            <img src="<?php echo $image['img_location'] ?>">
+                        </div>     
+                    </div>
+                </a> <?php 
                 } 
             }?>
 
