@@ -52,7 +52,7 @@ if(mysqli_num_rows($get_img_details_query) > 0) {
                 <p><a href="<?php echo $image['img_location'];?>" download>Download Image</a></p>
                 <a href="user.php?username=<?php echo $image['added_by_username'];?>"><p>See More From This User</p></a>
             </div>
-
+            <a class='like_btn' href='includes/form_handlers/img_like.php?photo_id=<?php echo $img_id;?>'>Like</a>
             <div class="flex-2">
                 <p class='img_desc'><?php echo $image['description']; ?></p>
 
