@@ -51,12 +51,26 @@ if(isset($_GET['username'])) {
     <section id="user_details">
         <div class="user_grid container" >
             <div class="left">
-
                 <h2><?php  echo $user['username'];?></h2>
-                <a href='includes/form_handlers/user_subscribe.php?userid=<?php echo $user['id']; ?>'><?php echo $user['num_followers']; ?></a>
+                        
+                <a id='follow_btn' href='includes/form_handlers/user_subscribe.php?userid=<?php echo $user['id']; ?>'>Followers: <?php echo $user['num_followers']; ?></a>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit tempora ducimus distinctio officiis. 
                 Accusantium officiis dicta quibusdam. Rem at dolores, quo quisquam molestiae unde, sint facilis aut deserunt, 
                 inventore reiciendis.</p>
+                <script>
+                    //see if button is hovered on then chenge content
+                        follow_btn = document.getElementById('follow_btn');
+                        follow_btn.addEventListener("mouseenter", function() {
+                            if(follow_btn.innerHTML == "Follow") {
+                                follow_btn.innerHTML = "Followers: <?php echo $user['num_followers']; ?>";  
+                            } else {
+                                follow_btn.innerHTML = "Follow";  
+                                //on mouse leave change back to num of followers
+                                follow_btn.addEventListener("mouseleave",function(){
+                                    follow_btn.innerHTML = "Followers: <?php echo $user['num_followers']; ?>";  
+                                }); 
+                            }
+                });</script>
             </div>
         </div>
     </section>
@@ -84,5 +98,6 @@ if(isset($_GET['username'])) {
 
     </section>
 
+<script src="assets/javascript/user.js"></script>
 </body>
 </html>
