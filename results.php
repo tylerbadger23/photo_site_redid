@@ -39,7 +39,7 @@ if(isset($_POST['search'])) {
 
     <?php 
 
-    $select_img_query = mysqli_query($con,"SELECT * FROM photos WHERE category LIKE '%$search%' OR title LIKE '%$search%' OR date_uploaded LIKE '%$search%' OR added_by_username LIKE '%$search%' ORDER BY id DESC");
+    $select_img_query = mysqli_query($con,"SELECT * FROM photos WHERE category LIKE '%$search%' OR date_uploaded LIKE '%$search%' OR added_by_username LIKE '%$search%' ORDER BY id DESC");
     $select_img_result = mysqli_num_rows($select_img_query);
     if($select_img_result > 0) {
         //echo "<div class='count'>" . $select_img_result . "</div>";

@@ -51,7 +51,9 @@ if(isset($_GET['username'])) {
     <section id="user_details">
         <div class="user_grid container" >
             <div class="left">
+
                 <h2><?php  echo $user['username'];?></h2>
+                <a href='includes/form_handlers/user_subscribe.php?userid=<?php echo $user['id']; ?>'><?php echo $user['num_followers']; ?></a>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit tempora ducimus distinctio officiis. 
                 Accusantium officiis dicta quibusdam. Rem at dolores, quo quisquam molestiae unde, sint facilis aut deserunt, 
                 inventore reiciendis.</p>
