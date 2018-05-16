@@ -2,6 +2,8 @@
 include 'includes/config.php';
 include "includes/login_check.php";
 
+$current_id = $_SESSION['current_id'];
+
 if(isset($_GET['username'])) {
 
     //clear and check for code
@@ -15,6 +17,7 @@ if(isset($_GET['username'])) {
     if(mysqli_num_rows($user_select_query)){
         $user = mysqli_fetch_assoc($user_select_query);
         $username = $user['username'];
+        $user_id = $user['id'];
     } else{
         header("Location: index.php?error=user_not_found");
         exit();
@@ -57,20 +60,41 @@ if(isset($_GET['username'])) {
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit tempora ducimus distinctio officiis. 
                 Accusantium officiis dicta quibusdam. Rem at dolores, quo quisquam molestiae unde, sint facilis aut deserunt, 
                 inventore reiciendis.</p>
+                <?php
+                    // check if user page user and cuurent user are linked in user following table
+                    $following = 0;
+                    //query to see if rows in database match
+                    $check_following_query = mysqli_query($con, "SELECT * FROM user_follows WHERE follower_id='$user_id' AND following_id='$current_id'");
+                    //if results then set following to true
+                    if(mysqli_num_rows($check_following_query) == 1) {
+                        $following = 1;
+                    } else {
+                        $following = 0;
+                    }
+
+                ?>
                 <script>
-                    //see if button is hovered on then chenge content
+                        following_count = <?php echo $following; ?>;
+                        //see if button is hovered on then chenge content
                         follow_btn = document.getElementById('follow_btn');
                         follow_btn.addEventListener("mouseenter", function() {
-                            if(follow_btn.innerHTML == "Follow") {
+                            if(follow_btn.innerHTML == "Follow" || follow_btn.innerHTML == "un-follow") {
                                 follow_btn.innerHTML = "Followers: <?php echo $user['num_followers']; ?>";  
                             } else {
-                                follow_btn.innerHTML = "Follow";  
-                                //on mouse leave change back to num of followers
-                                follow_btn.addEventListener("mouseleave",function(){
-                                    follow_btn.innerHTML = "Followers: <?php echo $user['num_followers']; ?>";  
-                                }); 
+                                if(following_count == 1) { //if they are following already do this
+                                    follow_btn.innerHTML = "UNFOLLOW";
+                                    follow_btn.addEventListener('mouseleave',function() {
+                                        follow_btn.innerHTML = "Followers: <?php echo $user['num_followers']; ?>";    
+                                    });
+                                } else {
+                                    follow_btn.innerHTML = "Follow";
+                                    follow_btn.addEventListener('mouseleave',function() {
+                                        follow_btn.innerHTML = "Followers: <?php echo $user['num_followers']; ?>";    
+                                    });
+                                }
                             }
-                });</script>
+                        });
+                </script>
             </div>
         </div>
     </section>
