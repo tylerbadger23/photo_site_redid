@@ -20,7 +20,7 @@ include 'includes/config.php';
         <div class="container">
             <h2>Upload To Our Marketplace</h2>
             <form action="includes/form_handlers/image_upload.php" method='post' enctype='multipart/form-data'>
-            
+
                 <div class="input-container">
                     <label>Description</label>
                     <textarea name="desc" rows="8" required placeholder='Enter Content Here...'></textarea>
@@ -38,7 +38,7 @@ include 'includes/config.php';
                         $select_cat_query = mysqli_query($con, "SELECT * FROM categories");
                         if(mysqli_num_rows($select_cat_query) > 0) {
                             while($category = mysqli_fetch_assoc($select_cat_query)) { ?>
-                                <option value="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></option>  
+                                <option value="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></option>
                     <?php } }?>
 
                     </select>

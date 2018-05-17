@@ -55,10 +55,10 @@ if(isset($_GET['username'])) {
         <div class="user_grid container" >
             <div class="left">
                 <h2><?php  echo $user['username'];?></h2>
-                        
+
                 <a id='follow_btn' href='includes/form_handlers/user_subscribe.php?userid=<?php echo $user['id']; ?>'>Followers: <?php echo $user['num_followers']; ?></a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit tempora ducimus distinctio officiis. 
-                Accusantium officiis dicta quibusdam. Rem at dolores, quo quisquam molestiae unde, sint facilis aut deserunt, 
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit tempora ducimus distinctio officiis.
+                Accusantium officiis dicta quibusdam. Rem at dolores, quo quisquam molestiae unde, sint facilis aut deserunt,
                 inventore reiciendis.</p>
                 <?php
                     // check if user page user and cuurent user are linked in user following table
@@ -74,22 +74,22 @@ if(isset($_GET['username'])) {
 
                 ?>
                 <script>
-                        following_count = <?php echo $following; ?>;
+                        let following_count = <?php echo $following; ?>;
                         //see if button is hovered on then chenge content
-                        follow_btn = document.getElementById('follow_btn');
-                        follow_btn.addEventListener("mouseenter", function() {
+                        let follow_btn = document.getElementById('follow_btn');
+                        follow_btn.addEventListener("mouseenter", function () {
                             if(follow_btn.innerHTML == "Follow" || follow_btn.innerHTML == "un-follow") {
-                                follow_btn.innerHTML = "Followers: <?php echo $user['num_followers']; ?>";  
+                                follow_btn.innerHTML = "Followers: <?php echo $user['num_followers']; ?>";
                             } else {
                                 if(following_count == 1) { //if they are following already do this
                                     follow_btn.innerHTML = "UNFOLLOW";
-                                    follow_btn.addEventListener('mouseleave',function() {
-                                        follow_btn.innerHTML = "Followers: <?php echo $user['num_followers']; ?>";    
+                                    follow_btn.addEventListener('mouseleave',function () {
+                                        follow_btn.innerHTML = "Followers: <?php echo $user['num_followers']; ?>";
                                     });
                                 } else {
                                     follow_btn.innerHTML = "Follow";
-                                    follow_btn.addEventListener('mouseleave',function() {
-                                        follow_btn.innerHTML = "Followers: <?php echo $user['num_followers']; ?>";    
+                                    follow_btn.addEventListener('mouseleave',function () {
+                                        follow_btn.innerHTML = "Followers: <?php echo $user['num_followers']; ?>";
                                     });
                                 }
                             }
@@ -114,10 +114,10 @@ if(isset($_GET['username'])) {
                     <div class="img">
                         <div class="img-content">
                             <img src="<?php echo $image['img_location'] ?>">
-                        </div>     
+                        </div>
                     </div>
-                </a> <?php 
-                } 
+                </a> <?php
+                }
             }?>
 
     </section>
